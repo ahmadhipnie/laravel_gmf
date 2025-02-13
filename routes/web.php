@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\DashboardAdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BarangAdminController;
 use App\Http\Controllers\inspector\DashboardInspectorController;
 use Illuminate\Support\Facades\Route;
 
@@ -54,7 +55,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::prefix('admin')->group(function () {
 
         Route::get('/dashboardAdmin', [DashboardAdminController::class, 'index'])->name('dashboard_admin');
-        // Route::get('/dataBarangAdmin', [BarangAdminController::class, 'index'])->name('data_barang_admin');
+
+        Route::get('/dataBarangAdmin', [BarangAdminController::class, 'index'])->name('data_barang_admin');
         // Route::get('/dataKaryawanAdmin', [KaryawanAdminController::class, 'index'])->name('data_karyawan_admin');
 
         // // Route untuk update (edit) barang
