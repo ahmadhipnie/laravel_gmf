@@ -24,7 +24,7 @@ return new class extends Migration
             $table->date('next_inspection_date');
 
             $table->text('deskripsi');
-            $table->float('panjang');
+            $table->text('deskripsi');
             $table->float('lebar');
             $table->float('tinggi');
 
@@ -40,6 +40,9 @@ return new class extends Migration
             $table->boolean('calibration');
             $table->boolean('modification');
             $table->boolean('repair');
+
+            $table->float('qr_code')->nullable();
+
             $table->timestamps();
         });
     }
