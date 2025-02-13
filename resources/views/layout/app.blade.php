@@ -33,19 +33,17 @@
 
         <!-- Sidebar -->
         <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar"
-            style="background-color: #23274D;>
+            style="background-color: #D9E8F0;>
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand
-            d-flex align-items-center justify-content-center href="{{ route('home') }}">
+            d-flex align-items-center justify-content-center href="">
             <div class="sidebar-brand-icon ">
                 <div class="login-container">
                     <!-- Memanggil gambar logo -->
-                    <img src="img/logo_garuda.png" alt="Logo" class="logo" width="30%"
-                        style="margin-top:30px; margin-left:20px;">
-                    <p
-                        style="margin-left: 90px; margin-top: -50px; color:white; font-weight: bold; font-family: poppins_bold;">
-                        GMF</p>
+                    <img src="{{ asset('img/img_logo_garuda.png') }}" alt="Logo" class="logo" width="70%"
+                        style="margin-top:30px; margin-left:20px;" class="mt-5 d-flex justify-content-center align-items-center">
+
                 </div>
 
                 </a>
@@ -109,7 +107,7 @@
                     @if (Auth::user()->role == 'inpector')
                      <!-- Nav Item - Dashboard -->
                      <li class="nav-item">
-                        <a class="nav-link" href="{{ route('dashboard') }}">
+                        <a class="nav-link" href="">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
                             <span>Dashboard</span></a>
                     </li>
@@ -137,12 +135,12 @@
                         </div>
                     </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('pelanggan') }}">
+                        <a class="nav-link" href="">
                             <i class="fas fa-users"></i>
                             <span>Data Barang</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('penjahit') }}">
+                        <a class="nav-link" href="">
                             <i class="fas fa-users"></i>
                             <span>Data Riwayat Pelaporan</span></a>
                     </li>
@@ -187,7 +185,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                                    {{ $nama->name }}</span>
+                                    {{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle" src="{{ asset('img/undraw_profile.svg') }}">
                             </a>
                             <!-- Dropdown - User Information -->
