@@ -27,7 +27,7 @@ return new class extends Migration
             $table->float('panjang');
             $table->float('lebar');
             $table->float('tinggi');
-            
+
             $table->string('location');
 
             $table->text('img_url');
