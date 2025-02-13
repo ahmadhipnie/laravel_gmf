@@ -24,6 +24,7 @@ Route::get('/landingPage', [AuthController::class, 'showLoginForm'])->name('show
 
 
 Route::post('/login', [AuthController::class, 'login'])->name('loginn');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth', 'role:karyawan'])->group(function () {
 

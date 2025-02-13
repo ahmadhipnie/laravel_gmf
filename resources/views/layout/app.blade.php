@@ -49,6 +49,7 @@
                 </div>
 
                 </a>
+                @include('sweetalert::alert')
 
                 <!-- Divider -->
                 <hr class="sidebar-divider my-0">
@@ -308,7 +309,7 @@
 
     <!-- Page level plugins -->
     <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @stack('js')
 
 </body>

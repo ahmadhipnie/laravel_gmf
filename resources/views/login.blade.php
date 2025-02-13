@@ -55,6 +55,8 @@
 
 </head>
 <body>
+    @include('sweetalert::alert')
+
     <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -80,10 +82,13 @@
                                             <input type="text" class="form-control form-control-user" name="nip"
                                                 placeholder="enter nip" required >
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                name="password" placeholder="enter password" required>
+                                        <div class="form-group position-relative">
+                                            <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Enter password" required>
+                                            <button type="button" class="btn btn-sm btn-secondary position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%);" onclick="togglePassword()">
+                                                <i id="eye-icon" class="fas fa-eye"></i>
+                                            </button>
                                         </div>
+
                                         <button type="submit" class="btn-user btn-block mb-4" style="background-color: #23274D; color: white; font-size: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" align="center" >
                                             Login
                                         </button>
@@ -98,6 +103,23 @@
             </div>
         </div>
     </div>
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            var eyeIcon = document.getElementById("eye-icon");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye");
+            }
+        }
+    </script>
+
 
     <!-- Bootstrap core JavaScript-->
    {{-- @include('layout.footer') --}}
@@ -110,7 +132,7 @@
 
    <!-- Custom scripts for all pages-->
    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
