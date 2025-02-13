@@ -56,7 +56,7 @@
                     @if (Auth::user()->role == 'admin')
                         <!-- Nav Item - Dashboard -->
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{ route('dashboard_admin') }}">
                                 <i class="fas fa-fw fa-tachometer-alt"></i>
                                 <span>Dashboard</span></a>
                         </li>
@@ -64,27 +64,22 @@
                         <!-- Divider -->
                         <hr class="sidebar-divider">
 
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link collapsed" href="#" data-toggle="collapse"
                                 data-target="#collapsePengguna" aria-expanded="true" aria-controls="collapsePengguna">
                                 <i class="fas fa-chalkboard"></i>
-                                <span>Data Barang</span></a>
+                                <span>Pelaporan</span></a>
                             </a>
                             <div id="collapsePengguna" class="collapse" aria-labelledby="headingPengguna"
                                 data-parent="#accordionSidebar">
                                 <div class="bg-white py-2 collapse-inner rounded">
-                                    <a class="collapse-item" href="">belum Bayar</a>
-                                    <a class="collapse-item" href="">Diproses</a>
-                                    <a class="collapse-item" href="">Selesai Belum
-                                        Diterima</a>
-                                    <a class="collapse-item" href="">Selesai Sudah
-                                        Diterima</a>
-                                    <a class="collapse-item" href="">Dibatalkan</a>
+                                    <a class="collapse-item" href="{{ route('daily_inspection_admin') }}">Daily Inspection</a>
+                                    <a class="collapse-item" href="{{ route('last_inspection_admin') }}">Last Inspection</a>
                                 </div>
                             </div>
-                        </li> --}}
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{ route('data_inspector_admin') }}">
                                 <i class="fas fa-users"></i>
                                 <span>Data Inspector</span></a>
                         </li>
@@ -93,21 +88,16 @@
                                 <i class="fas fa-users"></i>
                                 <span>Data Barang</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">
-                                <i class="fas fa-star"></i>
-                                <span>Pelaporan</span></a>
-                        </li>
 
 
                     @endif
                 @endauth
 
                 @auth
-                    @if (Auth::user()->role == 'inpector')
+                    @if (Auth::user()->role == 'inspector')
                      <!-- Nav Item - Dashboard -->
                      <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{{ route('dashboard_inspector') }}">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
                             <span>Dashboard</span></a>
                     </li>
@@ -115,35 +105,31 @@
                     <!-- Divider -->
                     <hr class="sidebar-divider">
 
-                    {{-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link collapsed" href="#" data-toggle="collapse"
                             data-target="#collapsePengguna" aria-expanded="true" aria-controls="collapsePengguna">
                             <i class="fas fa-chalkboard"></i>
-                            <span>Data Pesanan</span></a>
+                            <span>Data Riwayat Pelaporan</span></a>
                         </a>
                         <div id="collapsePengguna" class="collapse" aria-labelledby="headingPengguna"
                             data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item" href="{{ route('pesananBelumBayar') }}">belum Bayar</a>
-                                <a class="collapse-item" href="{{ route('pesananDiproses') }}">Diproses</a>
-                                <a class="collapse-item" href="{{ route('pesananSelesaiBelumDiterima') }}">Selesai Belum
-                                    Diterima</a>
-                                <a class="collapse-item" href="{{ route('pesananSelesaiSudahDiterima') }}">Selesai Sudah
-                                    Diterima</a>
-                                <a class="collapse-item" href="{{ route('pesananDibatalkan') }}">Dibatalkan</a>
+                                <a class="collapse-item" href="">Daily Inspection</a>
+                                <a class="collapse-item" href="">Last Inspection</a>
+
                             </div>
                         </div>
-                    </li> --}}
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">
                             <i class="fas fa-users"></i>
                             <span>Data Barang</span></a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="">
                             <i class="fas fa-users"></i>
                             <span>Data Riwayat Pelaporan</span></a>
-                    </li>
+                    </li> --}}
 
                     @endif
                 @endauth
@@ -218,7 +204,7 @@
                     mengakhiri sesi Anda saat ini.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                        <form id="logout-form" action="" method="POST">
+                        <form id="logout-form" action="{{ route('logout') }}" method="GET">
                             @csrf
                             <button type="submit" class="btn btn-primary">Logout</button>
                         </form>

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->date('next_inspection_date');
 
             $table->text('deskripsi');
-            $table->text('deskripsi');
+            $table->text('panjang');
             $table->float('lebar');
             $table->float('tinggi');
 

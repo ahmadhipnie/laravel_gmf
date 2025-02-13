@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\admin\DashboardAdminController;
+use App\Http\Controllers\admin\InspectorAdminController;
+use App\Http\Controllers\admin\PelaporanAdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\inspector\DashboardInspectorController;
 use Illuminate\Support\Facades\Route;
@@ -26,13 +28,12 @@ Route::get('/landingPage', [AuthController::class, 'showLoginForm'])->name('show
 Route::post('/login', [AuthController::class, 'login'])->name('loginn');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::middleware(['auth', 'role:karyawan'])->group(function () {
+Route::middleware(['auth', 'role:inspector'])->group(function () {
 
-    Route::prefix('karyawan')->group(function () {
+    Route::prefix('inspector')->group(function () {
 
         Route::get('/dashboardInspector', [DashboardInspectorController::class, 'index'])->name('dashboard_inspector');
 
-        // Route::get('/dataBarangKaryawan', [BarangKaryawanController::class, 'index'])->name('data_barang_karyawan');
 
         // // Route untuk menampilkan halaman transaksi
         // Route::get('/transaksiKaryawan', [TransaksiController::class, 'index'])->name('transaksiKaryawan');
@@ -54,8 +55,22 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::prefix('admin')->group(function () {
 
         Route::get('/dashboardAdmin', [DashboardAdminController::class, 'index'])->name('dashboard_admin');
-        // Route::get('/dataBarangAdmin', [BarangAdminController::class, 'index'])->name('data_barang_admin');
-        // Route::get('/dataKaryawanAdmin', [KaryawanAdminController::class, 'index'])->name('data_karyawan_admin');
+
+        Route::get('/dataIspector', [InspectorAdminController::class, 'index'])->name('data_inspector_admin');
+        Route::post('/tambahInspectorAdmin', [InspectorAdminController::class, 'store'])->name('tambah_inspector_admin');
+        Route::get('inspector/{id}/edit', [InspectorAdminController::class, 'edit'])->name('admin.inspector.edit');
+        Route::put('inspector/{id}', [InspectorAdminController::class, 'update'])->name('admin.inspector.update');
+        Route::delete('inspector/{id}', [InspectorAdminController::class, 'destroy'])->name('admin.inspector.destroy');
+
+
+        Route::get('/LastInspectionAdmin', [PelaporanAdminController::class, 'index'])->name('last_inspection_admin');
+        Route::get('/LastInspectionAdmin/{id}', [PelaporanAdminController::class, 'detailLastInspection'])->name('detail_last_inspection_admin');
+        Route::delete('last-inspection/{id}', [PelaporanAdminController::class, 'destroyLastInspection'])->name('admin.last_inspection.destroy');
+
+
+        Route::get('/DailyInspectionAdmin', [PelaporanAdminController::class, 'indexDailyInspection'])->name('daily_inspection_admin');
+        Route::get('/DailyInspectionAdmin/{id}', [PelaporanAdminController::class, 'detailDailyInspection'])->name('detail_daily_inspection_admin');
+        Route::delete('daily-inspection/{id}', [PelaporanAdminController::class, 'destroyDailyInspection'])->name('admin.daily_inspection.destroy');
 
         // // Route untuk update (edit) barang
         // Route::put('/barang/{barang_id}', [BarangAdminController::class, 'update'])->name('barang.update');
@@ -78,6 +93,4 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 
     });
-
 });
-
