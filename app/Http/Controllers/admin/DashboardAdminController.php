@@ -16,6 +16,8 @@ class DashboardAdminController extends Controller
 
         $nama = $user->name;
 
+        $totalBarang = Barang::count();
+
 
 
         return view('admin.dashboard_admin', compact(['nama']));
