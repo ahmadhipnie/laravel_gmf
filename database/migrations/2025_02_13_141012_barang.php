@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('barang', function (Blueprint $table) {
+        Schema::create('barangs', function (Blueprint $table) {
             $table->id();
             $table->string('kode_barang')->unique();
             $table->string('work_order_number');
@@ -24,7 +24,8 @@ return new class extends Migration
             $table->date('next_inspection_date');
 
             $table->text('deskripsi');
-            $table->text('deskripsi');
+            $table->text('manufacturer');
+            $table->float('panjang');
             $table->float('lebar');
             $table->float('tinggi');
 
@@ -40,9 +41,7 @@ return new class extends Migration
             $table->boolean('calibration');
             $table->boolean('modification');
             $table->boolean('repair');
-
-            $table->float('qr_code')->nullable();
-
+            $table->string('qr_code')->nullable();
             $table->timestamps();
         });
     }

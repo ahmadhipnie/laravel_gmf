@@ -16,7 +16,7 @@ class BarangSeeder extends Seeder
     public function run()
     {
         for ($i = 1; $i <= 10; $i++) {
-            DB::table('barang')->insert([
+            DB::table('barangs')->insert([
                 'kode_barang' => 'BRG' . str_pad($i, 4, '0', STR_PAD_LEFT),
                 'work_order_number' => 'WO' . str_pad($i, 4, '0', STR_PAD_LEFT),
                 'owner' => 'Owner ' . $i,
