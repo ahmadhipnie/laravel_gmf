@@ -44,6 +44,10 @@
                             <label>Register No</label>
                             <input type="text" name="register_no" class="form-control" placeholder="Masukkan Register No" required value="{{ old('register_no') }}">
                         </div>
+                        <div class="form-group">
+                            <label>Manufacturer</label>
+                            <input type="text" name="manufacturer" class="form-control" placeholder="Masukkan Manufacturer" required value="{{ old('Manufacturer') }}">
+                        </div>
 
                         <div class="form-group">
                             <label>Last Inspection Date</label>

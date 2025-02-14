@@ -136,6 +136,7 @@ class BarangAdminController extends Controller
         $barang->kode_barang = $request->kode_barang;
         $barang->work_order_number = $request->work_order_number;
         $barang->owner = $request->owner;
+        $barang->manufacturer = $request->manufacturer;
         $barang->model = $request->model;
         $barang->serial_number = $request->serial_number;
         $barang->register_no = $request->register_no;
@@ -255,6 +256,7 @@ class BarangAdminController extends Controller
         $barang->kode_barang = $request->kode_barang;
         $barang->work_order_number = $request->work_order_number;
         $barang->owner = $request->owner;
+        $barang->manufacturer = $request->manufacturer;
         $barang->model = $request->model;
         $barang->serial_number = $request->serial_number;
         $barang->register_no = $request->register_no;
