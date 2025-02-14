@@ -33,19 +33,17 @@
 
         <!-- Sidebar -->
         <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar"
-            style="background-color: #23274D;>
+            style="background-color: #D9E8F0;>
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand
-            d-flex align-items-center justify-content-center href="{{ route('home') }}">
+            d-flex align-items-center justify-content-center href="">
             <div class="sidebar-brand-icon ">
                 <div class="login-container">
                     <!-- Memanggil gambar logo -->
-                    <img src="img/logo_garuda.png" alt="Logo" class="logo" width="30%"
-                        style="margin-top:30px; margin-left:20px;">
-                    <p
-                        style="margin-left: 90px; margin-top: -50px; color:white; font-weight: bold; font-family: poppins_bold;">
-                        GMF</p>
+                    <img src="{{ asset('img/img_logo_garuda.png') }}" alt="Logo" class="logo" width="70%"
+                        style="margin-top:30px; margin-left:20px;" class="mt-5 d-flex justify-content-center align-items-center">
+
                 </div>
 
                 </a>
@@ -57,59 +55,56 @@
                 @auth
                     @if (Auth::user()->role == 'admin')
                         <!-- Nav Item - Dashboard -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="">
+                        <li class="nav-item {{ request()->routeIs('dashboard_admin') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('dashboard_admin') }}" style="color: black;">
                                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                                <span>Dashboard</span></a>
+                                <span>Dashboard</span>
+                            </a>
                         </li>
 
-                        <!-- Divider -->
                         <hr class="sidebar-divider">
 
-                        {{-- <li class="nav-item">
+                        <li class="nav-item {{ request()->routeIs('daily_inspection_admin') || request()->routeIs('last_inspection_admin') ? 'active' : '' }}">
                             <a class="nav-link collapsed" href="#" data-toggle="collapse"
-                                data-target="#collapsePengguna" aria-expanded="true" aria-controls="collapsePengguna">
+                                data-target="#collapsePengguna" aria-expanded="true" aria-controls="collapsePengguna" style="color: black;">
                                 <i class="fas fa-chalkboard"></i>
-                                <span>Data Barang</span></a>
+                                <span>Pelaporan</span>
                             </a>
-                            <div id="collapsePengguna" class="collapse" aria-labelledby="headingPengguna"
-                                data-parent="#accordionSidebar">
+                            <div id="collapsePengguna" class="collapse {{ request()->routeIs('daily_inspection_admin') || request()->routeIs('last_inspection_admin') ? 'show' : '' }}"
+                                aria-labelledby="headingPengguna" data-parent="#accordionSidebar">
                                 <div class="bg-white py-2 collapse-inner rounded">
-                                    <a class="collapse-item" href="">belum Bayar</a>
-                                    <a class="collapse-item" href="">Diproses</a>
-                                    <a class="collapse-item" href="">Selesai Belum
-                                        Diterima</a>
-                                    <a class="collapse-item" href="">Selesai Sudah
-                                        Diterima</a>
-                                    <a class="collapse-item" href="">Dibatalkan</a>
+                                    <a class="collapse-item {{ request()->routeIs('daily_inspection_admin') ? 'active' : '' }}"
+                                        href="{{ route('daily_inspection_admin') }}" style="color: black;">Daily Inspection</a>
+                                    <a class="collapse-item {{ request()->routeIs('last_inspection_admin') ? 'active' : '' }}"
+                                        href="{{ route('last_inspection_admin') }}" style="color: black;">Last Inspection</a>
                                 </div>
                             </div>
-                        </li> --}}
-                        <li class="nav-item">
-                            <a class="nav-link" href="">
+                        </li>
+
+                        <li class="nav-item {{ request()->routeIs('data_inspector_admin') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('data_inspector_admin') }}" style="color: black;">
                                 <i class="fas fa-users"></i>
-                                <span>Data Inspector</span></a>
+                                <span>Data Inspector</span>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">
+
+                        <li class="nav-item {{ request()->routeIs('data_barang_admin') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('data_barang_admin') }}" style="color: black;">
                                 <i class="fas fa-users"></i>
-                                <span>Data Barang</span></a>
+                                <span>Data Barang</span>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">
-                                <i class="fas fa-star"></i>
-                                <span>Pelaporan</span></a>
-                        </li>
+
 
 
                     @endif
                 @endauth
 
                 @auth
-                    @if (Auth::user()->role == 'inpector')
+                    @if (Auth::user()->role == 'inspector')
                      <!-- Nav Item - Dashboard -->
                      <li class="nav-item">
-                        <a class="nav-link" href="{{ route('dashboard') }}">
+                        <a class="nav-link" href="{{ route('dashboard_inspector') }}">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
                             <span>Dashboard</span></a>
                     </li>
@@ -117,35 +112,31 @@
                     <!-- Divider -->
                     <hr class="sidebar-divider">
 
-                    {{-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link collapsed" href="#" data-toggle="collapse"
                             data-target="#collapsePengguna" aria-expanded="true" aria-controls="collapsePengguna">
                             <i class="fas fa-chalkboard"></i>
-                            <span>Data Pesanan</span></a>
+                            <span>Data Riwayat Pelaporan</span></a>
                         </a>
                         <div id="collapsePengguna" class="collapse" aria-labelledby="headingPengguna"
                             data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item" href="{{ route('pesananBelumBayar') }}">belum Bayar</a>
-                                <a class="collapse-item" href="{{ route('pesananDiproses') }}">Diproses</a>
-                                <a class="collapse-item" href="{{ route('pesananSelesaiBelumDiterima') }}">Selesai Belum
-                                    Diterima</a>
-                                <a class="collapse-item" href="{{ route('pesananSelesaiSudahDiterima') }}">Selesai Sudah
-                                    Diterima</a>
-                                <a class="collapse-item" href="{{ route('pesananDibatalkan') }}">Dibatalkan</a>
+                                <a class="collapse-item" href="">Daily Inspection</a>
+                                <a class="collapse-item" href="">Last Inspection</a>
+
                             </div>
                         </div>
-                    </li> --}}
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('pelanggan') }}">
+                        <a class="nav-link" href="">
                             <i class="fas fa-users"></i>
                             <span>Data Barang</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('penjahit') }}">
+                    {{-- <li class="nav-item">
+                        <a class="nav-link" href="">
                             <i class="fas fa-users"></i>
                             <span>Data Riwayat Pelaporan</span></a>
-                    </li>
+                    </li> --}}
 
                     @endif
                 @endauth
@@ -187,7 +178,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                                    {{ $nama->name }}</span>
+                                    {{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle" src="{{ asset('img/undraw_profile.svg') }}">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -220,7 +211,7 @@
                     mengakhiri sesi Anda saat ini.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                        <form id="logout-form" action="" method="POST">
+                        <form id="logout-form" action="{{ route('logout') }}" method="GET">
                             @csrf
                             <button type="submit" class="btn btn-primary">Logout</button>
                         </form>
