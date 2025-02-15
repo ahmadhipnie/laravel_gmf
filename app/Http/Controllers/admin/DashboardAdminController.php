@@ -56,7 +56,7 @@ public function exportPDF($id) {
     public function hasil_scan($qr_code) {
 
 
-        $barang= Barang::where('qr_code', $qr_code)->first();
+        $barang= Barang::where('kode_barang', $qr_code)->first();
 
 
         return view('hasil_scan', compact(['barang']));

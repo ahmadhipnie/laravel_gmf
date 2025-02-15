@@ -61,11 +61,7 @@
                                     <h6 class="m-0">QR Code</h6>
                                 </div>
                                 <div class="card-body text-center">
-                                    @if ($barang->qr_code)
-                                        <img src="{{ asset('img/foto_qrcode/' . $barang->qr_code) }}" class="img-fluid rounded" style="max-width: 200px;">
-                                    @else
-                                        <p class="text-muted">QR Code belum dibuat</p>
-                                    @endif
+                                    {!! QrCode::size(200)->generate(url('/barang/' . $barang->kode_barang)) !!}
                                 </div>
                             </div>
                         </div>
