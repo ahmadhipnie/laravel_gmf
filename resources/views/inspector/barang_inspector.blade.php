@@ -1,12 +1,12 @@
 @extends('layout.app')
 
-@section('title', 'Data Barang')
+@section('title', 'Data Items')
 
 @section('content')
 
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Data Barang</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Items</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -14,7 +14,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>ID Barang</th>
+                            <th>ID Item</th>
                             <th>Owner / Customer</th>
                             <th>Description</th>
                             <th>Model/Type/Part Number</th>
@@ -39,13 +39,13 @@
                                         <span class="icon text-white-50">
                                             <i class="fas fa-plus"></i>
                                         </span>
-                                        <span class="text">Tambah Daily Inspection</span>
+                                        <span class="text">Add Daily Inspection</span>
                                     </a>
                                     <a href="{{ route('tambah_last_inspection',['id_barang' => $item->id]) }}" class="btn btn-primary btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-plus"></i>
                                         </span>
-                                        <span class="text">Tambah Last Inspection</span>
+                                        <span class="text">Add Last Inspection</span>
                                     </a>
                                 </td>
                             </tr>

@@ -6,7 +6,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Daftar Inspector</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Inspector</h6>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addInspectorModal">Tambah Inspector</button>
         </div>
         <div class="card-body">
@@ -16,10 +16,10 @@
                         <tr>
                             <th>#</th>
                             <th>ID</th>
-                            <th>Nama Inspector</th>
-                            <th>NIP</th>
+                            <th>Inspector Name</th>
+                            <th>Personal Number</th>
                             <th>Password</th>
-                            <th>Aksi</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,15 +59,15 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="form-group">
-                                                    <label for="nip">NIP</label>
+                                                    <label for="nip">Personal Number</label>
                                                     <input type="text" class="form-control" name="nip" value="{{ $u->nip }}" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="name">Nama Inspector</label>
+                                                    <label for="name">Inspector Name</label>
                                                     <input type="text" class="form-control" name="name" value="{{ $u->name }}" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="password">Password (Kosongkan jika tidak ingin mengubah)</label>
+                                                    <label for="password">Password (empty if don't want to change password)</label>
                                                     <input type="password" class="form-control" name="password" minlength="8">
                                                 </div>
                                             </div>
@@ -93,18 +93,18 @@
                 <form action="{{ route('tambah_inspector_admin') }}" method="POST">
                     @csrf
                     <div class="modal-header">
-                        <h5 class="modal-title">Tambah Inspector</h5>
+                        <h5 class="modal-title">Add Inspector</h5>
                         <button type="button" class="close" data-dismiss="modal">
                             <span>&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="nip">NIP</label>
+                            <label for="nip">Personal Number</label>
                             <input type="text" class="form-control" name="nip" required>
                         </div>
                         <div class="form-group">
-                            <label for="name">Nama Inspector</label>
+                            <label for="name">Inspector Name</label>
                             <input type="text" class="form-control" name="name" required>
                         </div>
                         <div class="form-group">

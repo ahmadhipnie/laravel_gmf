@@ -5,48 +5,48 @@
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="col-lg-6 mb-3 mt-3">
-                    <a href="{{ route('data_barang_admin') }}" class="btn btn-danger">Kembali</a>
+                    <a href="{{ route('data_barang_admin') }}" class="btn btn-danger">Back</a>
                 </div>
 
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Tambah Barang</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Add Items</h6>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('tambahBarangAdminpost') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group">
-                            <label>Kode Barang</label>
-                            <input type="text" name="kode_barang" class="form-control" placeholder="Masukkan Kode Barang" value="{{ old('kode_barang') }}" required>
+                            <label>Code Item</label>
+                            <input type="text" name="kode_barang" class="form-control" placeholder="Enter Code Item" value="{{ old('kode_barang') }}" required>
                         </div>
 
                         <div class="form-group">
                             <label>Work Order Number</label>
-                            <input type="text" name="work_order_number" class="form-control" placeholder="Masukkan Work Order Number" required value="{{ old('work_order_number') }}">
+                            <input type="text" name="work_order_number" class="form-control" placeholder="Enter Work Order Number" required value="{{ old('work_order_number') }}">
                         </div>
 
                         <div class="form-group">
                             <label>Owner</label>
-                            <input type="text" name="owner" class="form-control" placeholder="Masukkan Owner" required value="{{ old('owner') }}">
+                            <input type="text" name="owner" class="form-control" placeholder="Enter Owner" required value="{{ old('owner') }}">
                         </div>
 
                         <div class="form-group">
                             <label>Model</label>
-                            <input type="text" name="model" class="form-control" placeholder="Masukkan Model" required value="{{ old('model') }}">
+                            <input type="text" name="model" class="form-control" placeholder="Enter Model" required value="{{ old('model') }}">
                         </div>
 
                         <div class="form-group">
                             <label>Serial Number</label>
-                            <input type="text" name="serial_number" class="form-control" placeholder="Masukkan Serial Number" required value="{{ old('serial_number') }}">
+                            <input type="text" name="serial_number" class="form-control" placeholder="Enter Serial Number" required value="{{ old('serial_number') }}">
                         </div>
 
                         <div class="form-group">
                             <label>Register No</label>
-                            <input type="text" name="register_no" class="form-control" placeholder="Masukkan Register No" required value="{{ old('register_no') }}">
+                            <input type="text" name="register_no" class="form-control" placeholder="Enter Register No" required value="{{ old('register_no') }}">
                         </div>
                         <div class="form-group">
                             <label>Manufacturer</label>
-                            <input type="text" name="manufacturer" class="form-control" placeholder="Masukkan Manufacturer" required value="{{ old('Manufacturer') }}">
+                            <input type="text" name="manufacturer" class="form-control" placeholder="Enter Manufacturer" required value="{{ old('Manufacturer') }}">
                         </div>
 
                         <div class="form-group">
@@ -65,39 +65,39 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Deskripsi</label>
-                            <textarea name="deskripsi" class="form-control" rows="3" placeholder="Masukkan Deskripsi">{{ old('deskripsi') }}</textarea>
+                            <label>Deskcription</label>
+                            <textarea name="deskripsi" class="form-control" rows="3" placeholder="Enter Deskription">{{ old('deskripsi') }}</textarea>
                         </div>
 
                         <div class="form-group">
-                            <label>Panjang (cm)</label>
-                            <input type="number" step="0.01" name="panjang" class="form-control" placeholder="Masukkan Panjang" value="{{ old('panjang') }}">
+                            <label>Long (m)</label>
+                            <input type="number" step="0.01" name="panjang" class="form-control" placeholder="Enter Long" value="{{ old('panjang') }}">
                         </div>
 
                         <div class="form-group">
-                            <label>Lebar (cm)</label>
-                            <input type="number" step="0.01" name="lebar" class="form-control" placeholder="Masukkan Lebar" value="{{ old('lebar') }}">
+                            <label>Width (m)</label>
+                            <input type="number" step="0.01" name="lebar" class="form-control" placeholder="Enter Width" value="{{ old('lebar') }}">
                         </div>
 
                         <div class="form-group">
-                            <label>Tinggi (cm)</label>
-                            <input type="number" step="0.01" name="tinggi" class="form-control" placeholder="Masukkan Tinggi" value="{{ old('tinggi') }}">
+                            <label>Height (m)</label>
+                            <input type="number" step="0.01" name="tinggi" class="form-control" placeholder="Enter Height" value="{{ old('tinggi') }}">
                         </div>
 
                         <div class="form-group">
                             <label>Location</label>
-                            <input type="text" name="location" class="form-control" placeholder="Masukkan Lokasi" value="{{ old('location') }}">
+                            <input type="text" name="location" class="form-control" placeholder="Enter Location" value="{{ old('location') }}">
                         </div>
 
                         <div class="form-group">
-                            <label>Upload Gambar</label>
+                            <label>Upload Image</label>
                             <input type="file" name="img_url" class="form-control-file" id="imgInput">
                             <br>
                             <img id="previewImg" src="" alt="Preview Gambar" style="max-width: 200px; display: none; margin-top: 10px;">
                         </div>
 
                         <div class="form-group">
-                            <label>Pilih Opsi Perawatan:</label><br>
+                            <label>Choose Performed Action:</label><br>
                             <div class="form-check">
                                 <input type="checkbox" name="cleaning" value="1" class="form-check-input"  >
                                 <label class="form-check-label">Cleaning</label>
@@ -132,7 +132,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block">Simpan Barang</button>
+                        <button type="submit" class="btn btn-primary btn-block">Save Item</button>
 
                     </form>
                 </div>

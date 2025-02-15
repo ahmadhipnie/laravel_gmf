@@ -15,9 +15,9 @@
                         <tr>
                             <th>#</th>
                             <th>ID</th>
-                            <th>Nama Inspector</th>
-                            <th>Nama Barang</th>
-                            <th>Tanggal Inspeksi</th>
+                            <th>Inspector Name</th>
+                            <th>Item Name</th>
+                            <th>Inspection Date</th>
                             <th>Last Know Condition</th>
                             <th>Follow Up Action</th>
                             <th>Aksi</th>

@@ -4,14 +4,14 @@
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Data Barang</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Data Items</h6>
                 </div>
                 <div class="card-body">
                     <a href="{{ route('tambahBarangAdmin') }}" class="btn btn-primary btn-icon-split mb-3">
                         <span class="icon text-white-50">
                             <i class="fas fa-plus"></i>
                         </span>
-                        <span class="text">Tambah Barang</span>
+                        <span class="text">Add Items</span>
                     </a>
 
 
@@ -23,7 +23,7 @@
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit">
                                         {{-- <i class="fas fa-search"></i> --}}
-                                        Cari
+                                        Search
                                     </button>
                                     <button class="btn btn-secondary" type="button"
                                         onclick="window.location.href='{{ route('data_barang_admin') }}'">
@@ -38,13 +38,13 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>ID Barang</th>
+                                    <th>ID Items</th>
                                     <th>Owner / Customer</th>
                                     <th>Description</th>
                                     <th>Model/Type/Part Number</th>
                                     <th>Serial Number</th>
                                     <th>Inventory / Register No.</th>
-                                    <th>Aksi</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             @foreach ($data as $item)
@@ -77,7 +77,7 @@
                                                 <span class="icon text-white-50">
                                                     <i class="fas fa-print"></i>
                                                 </span>
-                                                <span class="text">Cetak</span>
+                                                <span class="text">Export</span>
                                             </a>
                                             <a href="#" onclick="hapus({{ $item->id }})"
                                                 class="btn btn-danger btn-icon-split">
