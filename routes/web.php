@@ -25,6 +25,9 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+
+Route::get('/home', [AuthController::class, 'home'])->name('home');
 Route::get('/landingPage', [AuthController::class, 'showLoginForm'])->name('showLoginForm');
 
 

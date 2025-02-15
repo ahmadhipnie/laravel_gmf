@@ -19,6 +19,15 @@ class AuthController extends Controller
         return view('login');
     }
 
+
+    public function home()
+    {
+        if (auth()->user()->role == 'admin') {
+            return redirect()->route('dashboard_admin');
+        } elseif (auth()->user()->role == 'inspector') {
+            return redirect()->route('dashboard_inspector');
+        }
+    }
     public function login(Request $request)
     {
         // $request->validate([

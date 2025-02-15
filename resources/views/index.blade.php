@@ -73,6 +73,8 @@
               <li><a href="#">Dropdown 4</a></li>
             </ul>
           </li> --}}
+
+
           <li><a href="{{ route('showLoginForm') }}">Login</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
