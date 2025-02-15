@@ -16,6 +16,13 @@ class AuthController extends Controller
     public function showLoginForm()
     {
 
+if (auth()->user()) {
+
+    return redirect()->route('home');
+    # code...
+}
+
+
         return view('login');
     }
 

@@ -31,8 +31,8 @@ Route::get('/home', [AuthController::class, 'home'])->name('home');
 Route::get('/landingPage', [AuthController::class, 'showLoginForm'])->name('showLoginForm');
 
 
-Route::post('/login', [AuthController::class, 'login'])->name('loginn');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/login', [AuthController::class, 'login'])->name('loginn')->middleware('guest');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 Route::middleware(['auth', 'role:inspector'])->group(function () {
 
