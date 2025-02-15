@@ -26,6 +26,15 @@
 
 </head>
 
+<style>
+    body{
+        color: #23274D;
+    }
+    .navbar-nav .nav-item .nav-link i {
+        color: #23274D;
+    }
+</style>
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
