@@ -24,7 +24,8 @@
         </p>
         {{-- @dd($barang->qr_code, public_path('/img/foto_qr/' . $barang->qr_code)); --}}
 
-        <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/foto_qrcode/' . $barang->qr_code))) }}" width="150">
+        <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(200)->generate(url('/barang/' . $barang->kode_barang))) }}" width="150">
+
 
     </div>
 </body>

@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="container mt-4">
-        <a href="{{ route('hasil_scan',$barang->qr_code ) }}" class="btn btn-danger mb-3">Kembali</a>
+        <a href="{{ route('hasil_scan',$barang->kode_barang ) }}" class="btn btn-danger mb-3">Kembali</a>
 
         <div class="card shadow mb-4">
             <div class="card-header bg-primary text-white">
@@ -54,14 +54,11 @@
                         <div class="card shadow mb-4">
                             <div class="card-header bg-warning text-white">QR Code</div>
                             <div class="card-body text-center">
-                                @if ($barang->qr_code)
-                                <img src="{{ asset('img/foto_qrcode/' . $barang->qr_code) }}" class="img-fluid rounded" style="max-width: 200px;">
-                            @else
-                                <p class="text-muted">QR Code belum dibuat</p>
-                            @endif
+                                {!! QrCode::size(200)->generate(url('/barang/' . $barang->kode_barang)) !!}
                             </div>
                         </div>
                     </div>
+
 
                     <div class="col-md-6">
                         <div class="card shadow mb-4">

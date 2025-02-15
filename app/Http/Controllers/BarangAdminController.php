@@ -100,16 +100,16 @@ class BarangAdminController extends Controller
         $next_inspection_date = $request->next_inspection_date ? date('Y-m-d', strtotime($request->next_inspection_date)) : null;
 
         // Generate QR Code
-        $qrCodeName = time() . '-' . Str::random(10) . '.png';
-        $qrCodePath = public_path('img/foto_qrcode/' . $qrCodeName);
-        $qrCodeUrl = url('/barang/' . $qrCodeName); // URL ke halaman tertentu
-        $qrCodeContent = QrCode::format('png')->size(200)->generate($qrCodeUrl);
+        // $qrCodeName = time() . '-' . Str::random(10) . '.png';
+        // $qrCodePath = public_path('img/foto_qrcode/' . $qrCodeName);
+        // $qrCodeUrl = url('/barang/' . $qrCodeName); // URL ke halaman tertentu
+        // $qrCodeContent = QrCode::format('png')->size(200)->generate($qrCodeUrl);
 
 
-        if (file_put_contents($qrCodePath, $qrCodeContent) === false) {
-            Alert::error('Error', 'Gagal menyimpan QR Code.');
-            return redirect()->back()->with('error', 'Gagal menyimpan QR Code.');
-        }
+        // if (file_put_contents($qrCodePath, $qrCodeContent) === false) {
+        //     Alert::error('Error', 'Gagal menyimpan QR Code.');
+        //     return redirect()->back()->with('error', 'Gagal menyimpan QR Code.');
+        // }
 
 
 
@@ -149,7 +149,7 @@ class BarangAdminController extends Controller
         $barang->tinggi = $request->tinggi;
         $barang->location = $request->location;
         $barang->img_url = $imageName;
-        $barang->qr_code = $qrCodeName;
+        // $barang->qr_code = $qrCodeName;
 
         // Handle checkbox perawatan, default ke 0 jika tidak dicentang
         $barang->cleaning = $request->has('cleaning') ? 1 : 0;
