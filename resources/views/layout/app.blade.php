@@ -68,7 +68,7 @@
                             <a class="nav-link collapsed" href="#" data-toggle="collapse"
                                 data-target="#collapsePengguna" aria-expanded="true" aria-controls="collapsePengguna" style="color: black;">
                                 <i class="fas fa-chalkboard"></i>
-                                <span>Pelaporan</span>
+                                <span>Inspectino</span>
                             </a>
                             <div id="collapsePengguna" class="collapse {{ request()->routeIs('daily_inspection_admin') || request()->routeIs('last_inspection_admin') ? 'show' : '' }}"
                                 aria-labelledby="headingPengguna" data-parent="#accordionSidebar">
@@ -91,7 +91,7 @@
                         <li class="nav-item {{ request()->routeIs('data_barang_admin') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('data_barang_admin') }}" style="color: black;">
                                 <i class="fas fa-users"></i>
-                                <span>Data Barang</span>
+                                <span>Data Items</span>
                             </a>
                         </li>
 
@@ -116,21 +116,21 @@
                         <a class="nav-link collapsed" href="#" data-toggle="collapse"
                             data-target="#collapsePengguna" aria-expanded="true" aria-controls="collapsePengguna">
                             <i class="fas fa-chalkboard"></i>
-                            <span>Data Riwayat Pelaporan</span></a>
+                            <span>Inspection History Data</span></a>
                         </a>
                         <div id="collapsePengguna" class="collapse" aria-labelledby="headingPengguna"
                             data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                <a class="collapse-item" href="">Daily Inspection</a>
-                                <a class="collapse-item" href="">Last Inspection</a>
+                                <a class="collapse-item" href="{{ route('daily_inspection_inspector') }}">Daily Inspection</a>
+                                <a class="collapse-item" href="{{ route('last_inspection_inspector') }}">Last Inspection</a>
 
                             </div>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{{ route('data_barang_inspector') }}">
                             <i class="fas fa-users"></i>
-                            <span>Data Barang</span></a>
+                            <span>Data Items</span></a>
                     </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="">

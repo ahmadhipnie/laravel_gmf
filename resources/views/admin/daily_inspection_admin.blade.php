@@ -15,7 +15,7 @@
                         <tr>
                             <th>#</th>
                             <th>ID</th>
-                            <th>Nama Inspector</th>
+                            <th>Inspector Name</th>
                             <th>Nama Barang</th>
                             <th>Tanggal Inspeksi</th>
                             <th>Physical Condition</th>

@@ -5,7 +5,9 @@ use App\Http\Controllers\admin\InspectorAdminController;
 use App\Http\Controllers\admin\PelaporanAdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangAdminController;
+use App\Http\Controllers\inspector\BarangInspectorController;
 use App\Http\Controllers\inspector\DashboardInspectorController;
+use App\Http\Controllers\inspector\PelaporanInspectorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,16 +31,23 @@ Route::get('/landingPage', [AuthController::class, 'showLoginForm'])->name('show
 Route::post('/login', [AuthController::class, 'login'])->name('loginn');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::middleware(['auth', 'role:karyawan'])->group(function () {
+Route::middleware(['auth', 'role:inspector'])->group(function () {
 
-    Route::prefix('karyawan')->group(function () {
+    Route::prefix('inspector')->group(function () {
 
         Route::get('/dashboardInspector', [DashboardInspectorController::class, 'index'])->name('dashboard_inspector');
 
-        // Route::get('/dataBarangKaryawan', [BarangKaryawanController::class, 'index'])->name('data_barang_karyawan');
+        Route::get('/dataBarangInspector', [BarangInspectorController::class, 'index'])->name('data_barang_inspector');
 
-        // // Route untuk menampilkan halaman transaksi
-        // Route::get('/transaksiKaryawan', [TransaksiController::class, 'index'])->name('transaksiKaryawan');
+        Route::get('/tambahDailyInspection', [BarangInspectorController::class, 'tambahDailyInspection'])->name('tambah_daily_inspection');
+
+        Route::get('/tambahLastInspection', [BarangInspectorController::class, 'tambahLastInspection'])->name('tambah_last_inspection');
+
+        Route::post('/storeDailyInspection', [BarangInspectorController::class, 'storeDailyInspection'])->name('store_daily_inspection');
+        Route::post('/storeLastInspection', [BarangInspectorController::class, 'storeLastInspection'])->name('store_last_inspection');
+
+        Route::get('/LastInspectionInspector', [PelaporanInspectorController::class, 'indexLastInspection'])->name('last_inspection_inspector');
+        Route::get('/DailyInspectionInspector', [PelaporanInspectorController::class, 'indexDailyInspection'])->name('daily_inspection_inspector');
 
         // // Route untuk pencarian barang secara realtime
         // Route::get('/search-barang-karyawan', [TransaksiController::class, 'searchBarang'])->name('searchBarangkaryawan');
