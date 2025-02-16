@@ -16,7 +16,11 @@ class PelaporanAdminController extends Controller
         $user = Auth::user();
         $nama = $user->name;
 
-        $getAllLastInspection = LastInspection::with(['user', 'barang'])->paginate(10);
+        $getAllLastInspection = DB::table('last_inspection')
+        ->join('users', 'last_inspection.id_user', '=', 'users.id')
+        ->join('barangs', 'last_inspection.id_barang', '=', 'barangs.id')
+        ->select('last_inspection.*', 'users.name as nama_user', 'barangs.deskripsi as nama_barang', 'users.nip')
+        ->paginate(10);
         return view('admin.last_inspection_admin', compact(['nama', 'getAllLastInspection']));
     }
 
@@ -29,7 +33,7 @@ class PelaporanAdminController extends Controller
         $getAllDailyInspection = DB::table('daily_inspection')
             ->join('users', 'daily_inspection.id_user', '=', 'users.id')
             ->join('barangs', 'daily_inspection.id_barang', '=', 'barangs.id')
-            ->select('daily_inspection.*', 'users.name as nama_user', 'barangs.deskripsi as nama_barang')
+            ->select('daily_inspection.*', 'users.name as nama_user', 'barangs.deskripsi as nama_barang', 'users.nip')
             ->paginate(10);
         return view('admin.daily_inspection_admin', compact(['nama', 'getAllDailyInspection']));
     }
@@ -51,7 +55,7 @@ class PelaporanAdminController extends Controller
         $dailyInspection = DB::table('daily_inspection')
             ->join('users', 'daily_inspection.id_user', '=', 'users.id')
             ->join('barangs', 'daily_inspection.id_barang', '=', 'barangs.id')
-            ->select('daily_inspection.*', 'users.name as nama_user', 'barangs.deskripsi as nama_barang')
+            ->select('daily_inspection.*', 'users.name as nama_user', 'barangs.deskripsi as nama_barang' , 'users.nip')
             ->where('daily_inspection.id', $id)
             ->first();
         return view('admin.detail_daily_inspection_admin', compact(['nama', 'dailyInspection']));

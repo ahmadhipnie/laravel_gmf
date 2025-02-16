@@ -77,7 +77,7 @@
                             <a class="nav-link collapsed" href="#" data-toggle="collapse"
                                 data-target="#collapsePengguna" aria-expanded="true" aria-controls="collapsePengguna" style="color: black;">
                                 <i class="fas fa-chalkboard"></i>
-                                <span>Inspectino</span>
+                                <span>Inspection</span>
                             </a>
                             <div id="collapsePengguna" class="collapse {{ request()->routeIs('daily_inspection_admin') || request()->routeIs('last_inspection_admin') ? 'show' : '' }}"
                                 aria-labelledby="headingPengguna" data-parent="#accordionSidebar">
@@ -255,7 +255,7 @@
     <footer class="sticky-footer">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
-                <span>Copyright &copy; TAILOR HUB</span>
+                <span>Copyright &copy; HF-Tech</span>
             </div>
         </div>
     </footer>

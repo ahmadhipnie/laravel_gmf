@@ -16,11 +16,12 @@
                             <th>#</th>
                             <th>ID</th>
                             <th>Inspector Name</th>
+                            <th>personal Number</th>
                             <th>Item Name</th>
                             <th>Inspection Date</th>
                             <th>Last Know Condition</th>
                             <th>Follow Up Action</th>
-                            <th>Aksi</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,8 +29,9 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $u->id }}</td>
-                                <td>{{ $u->user->name }}</td>
-                                <td>{{ $u->barang->deskripsi }}</td>
+                                <td>{{ $u->nama_user }}</td>
+                                <td>{{ $u->nip }}</td>
+                                <td>{{ $u->nama_barang }}</td>
                                 <td>{{ $u->date_of_last_inspection }}</td>
                                 <td>{{ $u->last_know_condition }}</td>
                                 <td>{{ $u->follow_up_action }}</td>

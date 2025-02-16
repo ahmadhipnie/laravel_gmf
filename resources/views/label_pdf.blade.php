@@ -17,10 +17,10 @@
         <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/img_logo_garuda.png' ))) }}" width="150">
         <h3>{{ $barang->nama }}</h3>
         <p class="info">
-             {{ $barang->owner }} <br>
-             {{ $barang->deskripsi }} <br>
-             {{ $barang->serial_number }} <br>
-             {{ $barang->model }}
+            Owner : {{ $barang->owner }} <br>
+            Description : {{ $barang->deskripsi }} <br>
+            Serial Number : {{ $barang->serial_number }} <br>
+            Model : {{ $barang->model }}
         </p>
         {{-- @dd($barang->qr_code, public_path('/img/foto_qr/' . $barang->qr_code)); --}}
 
