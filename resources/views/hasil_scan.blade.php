@@ -267,7 +267,7 @@
         </div>
         <div class="image-container">
             <img src="{{ asset('img/foto_barang/' . $barang->img_url) }}" alt="Equipment Image">
-            <a href="{{ route('detail_barangscan', $barang->id) }}">Detail</a>
+            <a href="{{ route('detail_barangscan', $barang->id) }}" class="btn-user btn-block mb-4" style="background-color: #23274D; color: white; font-size: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" align="center" >Detail Equipment</a>
         </div>
     </div>
 </body>

@@ -17,15 +17,15 @@
                             <td>{{ $lastInspection->id }}</td>
                         </tr>
                         <tr>
-                            <th>Nama Inspector</th>
+                            <th>Inspector Name </th>
                             <td>{{ $lastInspection->user->name }}</td>
                         </tr>
                         <tr>
-                            <th>Nama Barang</th>
+                            <th>Item Name</th>
                             <td>{{ $lastInspection->barang->deskripsi }}</td>
                         </tr>
                         <tr>
-                            <th>Tanggal Inspeksi</th>
+                            <th>Inspection Date</th>
                             <td>{{ $lastInspection->date_of_last_inspection }}</td>
                         </tr>
                         <tr>

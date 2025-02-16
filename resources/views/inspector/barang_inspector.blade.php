@@ -20,7 +20,7 @@
                             <th>Model/Type/Part Number</th>
                             <th>Serial Number</th>
                             <th>Inventory / Register No.</th>
-                            <th>Aksi</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     @foreach ($getDataBarangAll as $item)

@@ -1,12 +1,12 @@
 @extends('layout.app')
 
-@section('title', 'Riwayat Daily Inspection')
+@section('title', 'Daily Inspection History')
 
 @section('content')
 
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Riwayat Daily Inspection</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Daily Inspection History</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -15,7 +15,7 @@
                         <tr>
                             <th>#</th>
                             <th>Date</th>
-                            <th>Nama Barang</th>
+                            <th>Item Name</th>
                             <th>Last Know Condition</th>
                             <th>Functioning Properly</th>
                             <th>Notes Finding</th>

@@ -7,19 +7,19 @@
 </head>
 <body>
     <div class="container mt-4">
-        <a href="{{ route('hasil_scan',$barang->kode_barang ) }}" class="btn btn-danger mb-3">Kembali</a>
+        <a href="{{ route('hasil_scan',$barang->kode_barang ) }}" class="btn btn-danger mb-3">Back</a>
 
         <div class="card shadow mb-4">
             <div class="card-header bg-primary text-white">
-                <h6 class="m-0">Detail Barang</h6>
+                <h6 class="m-0">Detail Item</h6>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card shadow mb-4">
-                            <div class="card-header bg-primary text-white">Informasi Barang</div>
+                            <div class="card-header bg-primary text-white">Information Item</div>
                             <div class="card-body">
-                                <p><strong>Kode Barang:</strong> {{ $barang->kode_barang }}</p>
+                                <p><strong>Code Item:</strong> {{ $barang->kode_barang }}</p>
                                     <p><strong>Work Order Number:</strong> {{ $barang->work_order_number }}</p>
                                     <p><strong>Owner:</strong> {{ $barang->owner }}</p>
                                     <p><strong>Model:</strong> {{ $barang->model }}</p>
@@ -29,22 +29,22 @@
                                     <p><strong>Release Inspection Date:</strong> {{ $barang->release_inspection_date }}</p>
                                     <p><strong>Next Inspection Date:</strong> {{ $barang->next_inspection_date }}</p>
                                     <p><strong>Deskripsi:</strong> {{ $barang->deskripsi }}</p>
-                                    <p><strong>Panjang:</strong> {{ $barang->panjang }} cm</p>
-                                    <p><strong>Lebar:</strong> {{ $barang->lebar }} cm</p>
-                                    <p><strong>Tinggi:</strong> {{ $barang->tinggi }} cm</p>
-                                    <p><strong>Lokasi:</strong> {{ $barang->location }}</p>
+                                    <p><strong>Long:</strong> {{ $barang->panjang }} m</p>
+                                    <p><strong>Width:</strong> {{ $barang->lebar }} m</p>
+                                    <p><strong>Height:</strong> {{ $barang->tinggi }} m</p>
+                                    <p><strong>Location:</strong> {{ $barang->location }}</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="card shadow mb-4">
-                            <div class="card-header bg-success text-white">Gambar Barang</div>
+                            <div class="card-header bg-success text-white">Image Item</div>
                             <div class="card-body text-center">
                                 @if ($barang->img_url)
                                 <img src="{{ asset('img/foto_barang/' . $barang->img_url) }}" class="img-fluid rounded" style="max-width: 100%;">
                             @else
-                                <p class="text-muted">Tidak ada gambar tersedia</p>
+                                <p class="text-muted">No Image Available</p>
                             @endif
                             </div>
                         </div>
@@ -62,7 +62,7 @@
 
                     <div class="col-md-6">
                         <div class="card shadow mb-4">
-                            <div class="card-header bg-info text-white">Opsi Perawatan</div>
+                            <div class="card-header bg-info text-white">Option Controll</div>
                             <div class="card-body">
                                 <ul>
                                     @if ($barang->cleaning) <li>Cleaning</li> @endif
