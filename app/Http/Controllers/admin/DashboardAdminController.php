@@ -75,7 +75,7 @@ class DashboardAdminController extends Controller
     {
 
 
-        $barang = Barang::where('qr_code', $qr_code)->first();
+        // $barang = Barang::where('qr_code', $qr_code)->first();
         $barang= Barang::where('kode_barang', $qr_code)->first();
 
 
