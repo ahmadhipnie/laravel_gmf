@@ -124,6 +124,6 @@ if (auth()->user()) {
         // Regenerate the token to prevent CSRF attacks
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+          return redirect()->route('showLoginForm');;
     }
 }
